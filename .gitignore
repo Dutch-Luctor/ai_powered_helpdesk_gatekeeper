@@ -1,0 +1,82 @@
+# ==============================================================================
+# 1. CREDENTIALS & SECRETS (Security Firewalls)
+# ==============================================================================
+.env
+*.env
+.env.*
+api_keys.json
+secrets.json
+
+# ==============================================================================
+# 2. HEAVY ARTIFACTS & MODEL WEIGHTS (Zero Bloat)
+# ==============================================================================
+# Never commit multi-gigabyte neural network binaries to source control!
+models/
+*.gguf
+*.bin
+*.pt
+*.safetensors
+*.onnx
+
+# ==============================================================================
+# 3. PYTHON VIRTUAL ENVIRONMENTS
+# ==============================================================================
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ==============================================================================
+# 4. PYTHON INTERNALS & BYTECODE CACHE
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==============================================================================
+# 5. IDE & EDITOR METADATA (Keep local environments decoupled)
+# ==============================================================================
+# JetBrains / PyCharm
+.idea/
+*.iml
+*.iws
+
+# Visual Studio Code
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# ==============================================================================
+# 6. OPERATING SYSTEM ARTIFACTS
+# ==============================================================================
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
