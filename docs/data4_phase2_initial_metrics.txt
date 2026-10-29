@@ -1,0 +1,25 @@
+TEST RESULTS PHASE 2 - INITIAL LOCAL METRICS
+Phase 2: Local CPU (Qwen 2.5 1.5B Q4_K_M)
+-----------------------------------------
+
+| **Compute Infrastructure** | Local Intel Core i7-12700 (8 Threads, AVX2) |
+
+Metric					|	Intel  i7-12700 performance	|	Industry Baseline for CPU inference	|	Architectural Grade
+Model Load Time			|	0.73 sec					|	1.5 - 3.5 sec						|	Instantaneous (Near-zero cold start overhead) 
+Throughput (Speed)		|	33.22 tokens / sec			|	15 - 22 tokens / sec				|	Instantaneous (Near-zero cold start overhead) 
+Ttl Inference Latency	|	1.05 sec					|	2.5 - 4.0 seconds					|	Sub-Second Real-Time (Instantaneous UI feedback)
+
+
+NOTE:
+Initial metrics for local model execution generated for 1 helpdesk ticket embedded in the prompt.
+
+# 2. Test Input: Actionable Ticket #1 from your test set
+PROMPT = """<|im_start|>system
+You are the Tier-0 Ticket Classifier and Quality Bouncer for COMPANY XYZ.
+Evaluate this ticket: 'Unable to post Goods Receipt in SAP S/4HANA. Transaction MIGO returns error Deficit of stock in transit. PO 4500187421 affected.'
+Output a concise JSON summary indicating actionable status, target system, and queue.<|im_end|>
+<|im_start|>assistant
+"""
+ 
+
+

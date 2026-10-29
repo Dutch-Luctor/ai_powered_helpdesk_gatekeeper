@@ -1,0 +1,31 @@
+id;archetype;raw_ticket_text;expected_actionable;expected_target_system
+1;Actionable;Unable to post Goods Receipt in SAP S/4HANA. Transaction MIGO returns error 'Deficit of stock in transit'. PO 4500187421 affected.;WAAR;SAP S/4HANA
+2;Actionable;SAP SuccessFactors performance review workflow is stuck at manager approval stage for employee 108773.;WAAR;SAP SuccessFactors
+3;Actionable;Outlook on Microsoft 365 stopped synchronizing this morning. New emails visible on mobile but not desktop client.;WAAR;Microsoft 365
+4;Actionable;User j.svensson cannot authenticate through Entra ID after MFA device replacement. Error AADSTS50076.;WAAR;Entra ID
+5;Actionable;ServiceNow catalog item 'Request New Laptop' throws HTTP 500 after submission.;WAAR;ServiceNow
+6;Actionable;Siemens Teamcenter will not allow release of part ABC-77541. Error indicates locked workflow object.;WAAR;Siemens Teamcenter
+7;Actionable;CATIA V6 launches but license checkout fails with message 'License server unavailable'.;WAAR;CATIA V6
+8;Actionable;Polarion ALM traceability report generation failed for project EPS-Steering-2027.;WAAR;Polarion ALM
+9;Actionable;Opcenter MES workstation WS-14 unable to download production orders since shift start.;WAAR;Opcenter MES
+10;Actionable;Ignition SCADA dashboard for Assembly Line 3 stopped updating machine status values.;WAAR;Ignition SCADA
+11;Actionable;Power BI executive sales dashboard refresh failed during overnight schedule. Gateway connection error reported.;WAAR;Power BI
+12;Actionable;OpenText EDI rejected ASN transmission for customer VW. Functional acknowledgement reports mapping failure.;WAAR;OpenText EDI
+13;Ambiguous;Purchase request approved yesterday but supplier still cannot see the order. Is procurement system down again?;ONWAAR;UNKNOWN
+14;Ambiguous;Employee moved department last week and now manager approvals don't work anymore.;ONWAAR;UNKNOWN
+15;Ambiguous;Production line cannot start today's order. Material appears available but release is missing somewhere.;ONWAAR;UNKNOWN
+16;Ambiguous;Barcode scanner works but labels generated overnight are rejected at station 6.;ONWAAR;UNKNOWN
+17;Ambiguous;Customer shipment was planned but carrier says nothing is visible in the portal.;ONWAAR;UNKNOWN
+18;Ambiguous;Quality measurements from this morning never reached the reporting dashboard.;ONWAAR;UNKNOWN
+19;Ambiguous;Users are complaining that documents linked to engineering drawings cannot be opened anymore.;ONWAAR;UNKNOWN
+20;Ambiguous;New employee can log into laptop but cannot access time reporting or HR data.;ONWAAR;UNKNOWN
+21;Ambiguous;Dashboard numbers do not match what finance reported yesterday. Which system contains the correct values?;ONWAAR;UNKNOWN
+22;Incomplete;URGENT!!! Everything is blocked. Call me ASAP.;ONWAAR;UNKNOWN
+23;Incomplete;System broken again. Same as last time. Please fix.;ONWAAR;UNKNOWN
+24;Incomplete;All my files are lost.;ONWAAR;UNKNOWN
+25;Incomplete;This is impacting production and management is asking questions. Need immediate support.;ONWAAR;UNKNOWN
+26;Incomplete;Error message on screen. Cannot continue.;ONWAAR;UNKNOWN
+27;Incomplete;Since the update yesterday nobody in our department can do what we need to do. This is becoming a serious business issue. Please escalate immediately.;ONWAAR;UNKNOWN
+28;Incomplete;Why does IT always change things on month end? Whatever was changed last night broke our process. Management is waiting.;ONWAAR;UNKNOWN
+29;Incomplete;Production is basically standing still. Operators are getting red messages everywhere. We need someone to look at this NOW.;ONWAAR;UNKNOWN
+30;Incomplete;URGENT!!! HELP!!! I have been trying for 45 minutes and nothing works. Please call me ASAP.;ONWAAR;UNKNOWN

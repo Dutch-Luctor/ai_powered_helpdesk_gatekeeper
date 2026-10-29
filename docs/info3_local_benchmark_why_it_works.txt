@@ -1,0 +1,92 @@
+ABOUT THE LOCAL BENCHMARK - THE COMPONENTS THAT MAKE IT POSSIBLE
+----------------------------------------------------------------
+
+STEP 1
+Create a virtual environment.
+
+	In the Command Prompt (cmd.exe), enter the following:
+	mkdir <your directory>
+	
+	cd C:<path to your directory>
+	python -m venv .venv 
+	
+
+STEP 2
+Activate the virtual environment.
+	
+	..venv\Scripts\activate 
+	
+	Prompt changes to:
+	(.venv) C:\ai_lab\my-ticket-blueprint>
+
+STEP 3
+Download a GGUF model:
+
+	GGUF - or GPT-Generated Unified Format or GGML Universal File - is a single-file binary format 
+	designed to store and run large language models efficiently on consumer hardware. [1, 2]
+
+	What GGUF Does
+	All-in-one packaging: It combines the model's weights (tensors), tokenizer, architecture parameters, and chat templates into one portable file. [1]
+
+	Local inference: It allows users to run powerful AI models directly on standard computers (CPUs and personal GPUs) 
+	rather than expensive cloud servers. [1]
+	
+	Quantization support: It shrinks model file sizes by 50% to 75% through lower-precision numbering (like 4-bit or 8-bit), 
+	reducing memory use with minimal loss in intelligence. [1, 2]
+
+	python -c "from huggingface_hub import hf_hub_download; p = hf_hub_download(repo_id='Qwen/Qwen2.5-1.5B-Instruct-GGUF', filename='qwen2.5-1.5b-instruct-q4_k_m.gguf', local_dir='models'); print('Model saved to:', p)"
+
+	https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF
+
+STEP 4
+Download a wrapper:
+
+pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+
+	THE WHY BEHIND THE WRAPPER
+	A Python script cannot talk directly to a GGUF model file. A GGUF file is just a giant block of binary numbers (weights).
+	To read those numbers and do the math, you need llama.cpp (the C++ engine). But Python cannot natively read or understand C++ code. 
+	They speak entirely different languages.
+	
+	Without the wrapper: Python looks at the C++ engine and the GGUF file and says, "I have no idea what to do with this." The script crashes before it even starts.
+	With the wrapper: The wrapper acts as the bridge. It translates your Python commands into C++ instructions, hands them to llama.cpp, 
+	and brings the answer back to Python. 
+	
+	In the setup Phase 2, the wrapper is crucial for execution, while the underlying C++ engine (llama.cpp) is what is crucial for performance.
+
+STEP 5 
+Exploit the hardware - 12th Gen Intel(R) Core(TM) i7-12700 (2.10 GHz)
+
+	Intel AVX (Advanced Vector Extensions) are special hardware instructions inside a processor that perform multiple calculations 
+	at the same time to speed up heavy math and data tasks. 
+
+	Compute / Math Kernels (The Engine Cylinders):
+	In machine learning, graphics, and high-performance computing, a compute kernel is a compact, 
+	highly specialized C/C++ or assembly routine designed to execute a single mathematical loop repeatedly 
+	across massive arrays of numbers (e.g., matrix multiplications: AB+C).
+
+	Inside your CPU, there are special SIMD (Single Instruction, Multiple Data) execution units like AVX2. 
+	A matrix-multiplication "kernel" is written so that a single CPU instruction calculates 8 to 16 math operations at once.
+	When running an LLM on your Intel i7-12700 CPU, llama.cpp executes millions of these small C++ compute kernels every second 
+	to calculate token probabilities. 
+
+	What AVX Does
+	SIMD Processing: Stands for Single Instruction, Multiple Data. 
+	One single command tells the CPU to process a long line of numbers simultaneously instead of one by one. [1, 2]
+
+	Faster Math: 
+	Boosts performance for floating-point (decimal) and integer (whole number) math. [1, 2]
+
+	Common Uses: 
+	Accelerates artificial intelligence (AI), video editing, 3D rendering, scientific simulations, and audio plugins. [1, 2, 3]
+
+	Main Versions of AVX
+	AVX / AVX1: Introduced 256-bit wide registers for floating-point math, starting with the Intel Sandy Bridge generation in 2011. [1, 2]
+	AVX2: Expanded 256-bit support to integer commands and added FMA (Fused Multiply-Add) units, starting with the Haswell generation in 2013. [1, 2]
+	AVX-512: Expands vector width up to 512 bits for massive data throughput, primarily used in enterprise Xeon servers and specific high-end architectures. [1, 2, 3]
+
+	Important Things to Know
+	Software Support: Programs must be specifically written or compiled by developers to use AVX instructions.
+	How to Know If My Intel® Processor Supports Intel® Advanced Vector... 
+	Intel® SSE4.1, Intel® SSE4.2, Intel® AVX2
+

@@ -1,0 +1,25 @@
+FICTICIOUS COMPANY XYZ
+FICTICIOUS System catalogue and support queues
+Generated with CoPilot and Gemini
+---------------------------------
+
+
+Application							|	Business Domain						|	Access Issues		|	Service Request		|	Incidents
+SAP S/4HANA	Finance					|	Procurement, Logistics				|	L2_COLLAB_SERVICES	|	L2_SAP_FINANCE		|	L3_ACCELERA
+SAP SuccessFactors					|	HR									|	L2_COLLAB_SERVICES	|	L2_HR_SERVICES		|	L3_ACCELERA
+Microsoft 365						|	Productivity & Collaboration		|	L2_COLLAB_SERVICES	|	L1_WORKSTATIONS		|	L3_MICROSOFT_INCIDENTS
+Active Directory / Entra ID			|	Identity & Access					|	L2_COLLAB_SERVICES	|	L1_ACCESS			|	L2_ACCESS
+ServiceNow							|	IT Service Management				|	L2_COLLAB_SERVICES	|	L1_WORKSTATIONS		|	L2_ITSM_SUPPORT
+Siemens Teamcenter					|	Product Lifecycle Management (PLM)	|	L2_COLLAB_SERVICES	|	L2_PLANT_ZARAGOZA	|	L3_SECUREEDGE
+CATIA V6							|	Engineering Design					|	L2_COLLAB_SERVICES	|	L2_CATIA_SUPPORT	|	L3_CATIA_INCIDENTS
+Polarion ALM						|	Requirements & Quality Management	|	L2_COLLAB_SERVICES	|	L2_PLANT_ZARAGOZA	|	L3_BLUEWIRE
+Opcenter MES (formerly Siemens MES)	|	Manufacturing Execution				|	L2_COLLAB_SERVICES	|	L2_MES_SERVICE		|	L3_MES_INCIDENTS
+Ignition SCADA						|	Factory Operations}					|	L2_COLLAB_SERVICES	|	L2_PLANT_BRNO		|	L3_INFRASTRUCTURE
+Q-DAS								|	Quality Management					|	L2_COLLAB_SERVICES	|	L2_PLANT_BRNO		|	L3_INFRASTRUCTURE
+EDI Gateway (OpenText)				|	Customer/Supplier Integration		|	L2_COLLAB_SERVICES	|	L2_EDI				|	L2_EDI
+TISAX Compliance Portal				|	Information Security				|	L2_COLLAB_SERVICES	|	L3_INFRASTRUCTURE	|	L3_INFRASTRUCTURE
+SharePoint Online					|	Document Management					|	L2_COLLAB_SERVICES	|	L2_COLLAB_SERVICES	|	L3_MICROSOFT_INCIDENTS
+Power BI							|	Reporting & Analytics				|	L2_COLLAB_SERVICES	|	L2_DATA_HUB			|	L3_ACCELERA
+Coupa								|	Procurement							|	L2_COLLAB_SERVICES	|	L2_SAP_FINANCE		|	L3_ACCELERA
+Transporeon							|	Transportation & Logistics			|	L2_COLLAB_SERVICES	|	L2_PLANT_WOLFSBURG	|	L3_BLUEWIRE
+Kronos / UKG Workforce				|	Time & Attendance					|	L2_COLLAB_SERVICES	|	L2_HR_SERVICES		|	L3_ACCELERA

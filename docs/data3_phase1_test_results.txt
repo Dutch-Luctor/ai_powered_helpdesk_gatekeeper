@@ -1,0 +1,142 @@
+TEST RESULTS PHASE 1
+Phase 1: Cloud (Gemini 3.6 Flash)
+---------------------------------
+
+| **Compute Infrastructure** | Managed Cloud TPU 
+| **Data Egress / Privacy** | External API payload 
+| **Actionable Gate Accuracy** | 30 / 30 (100.0%) 
+| **System Match Accuracy** | 30 / 30 (100.0%) 
+| **Average Latency** | ~0.90s (Network Dependent) 
+| **Throughput** | Managed Stream 
+| **Marginal Token Cost** | Pay-per-token API tier 
+
+
+Successfully loaded 30 test cases. Columns: ['id', 'archetype', 'raw_ticket_text', 'expected_actionable', 'expected_target_system']
+Bouncer Accuracy: 30/30 (100.0%)
+Process finished with exit code 0
+
+[01] ACTIONABLE | Actionable: True (Match: ✓) | Target: SAP S/4HANA | Queue: L2_SAP_FINANCE
+---------------------------------------------------------------------------
+
+[02] ACTIONABLE | Actionable: True (Match: ✓) | Target: SAP SuccessFactors | Queue: L2_HR_SERVICES
+---------------------------------------------------------------------------
+
+[03] ACTIONABLE | Actionable: True (Match: ✓) | Target: Microsoft 365 | Queue: L3_MICROSOFT_INCIDENTS
+---------------------------------------------------------------------------
+
+[04] ACTIONABLE | Actionable: True (Match: ✓) | Target: Active Directory / Entra ID | Queue: L1_ACCESS
+---------------------------------------------------------------------------
+
+[05] ACTIONABLE | Actionable: True (Match: ✓) | Target: ServiceNow | Queue: L2_ITSM_SUPPORT
+---------------------------------------------------------------------------
+
+[06] ACTIONABLE | Actionable: True (Match: ✓) | Target: Siemens Teamcenter | Queue: L2_PLM_SUPPORT
+---------------------------------------------------------------------------
+
+[07] ACTIONABLE | Actionable: True (Match: ✓) | Target: CATIA V6 | Queue: L2_CATIA_SUPPORT
+---------------------------------------------------------------------------
+
+[08] ACTIONABLE | Actionable: True (Match: ✓) | Target: Polarion ALM | Queue: L2_ALM_SUPPORT
+---------------------------------------------------------------------------
+
+[09] ACTIONABLE | Actionable: True (Match: ✓) | Target: Opcenter MES | Queue: L2_MES_SERVICE
+---------------------------------------------------------------------------
+
+[10] ACTIONABLE | Actionable: True (Match: ✓) | Target: Ignition SCADA | Queue: L2_MES_SERVICE
+---------------------------------------------------------------------------
+
+[11] ACTIONABLE | Actionable: True (Match: ✓) | Target: Power BI | Queue: L2_DATA_HUB
+---------------------------------------------------------------------------
+
+[12] ACTIONABLE | Actionable: True (Match: ✓) | Target: EDI Gateway (OpenText) | Queue: L2_EDI
+---------------------------------------------------------------------------
+
+[13] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks specific system context (e.g., Coupa vs SAP S/4HANA) and specific order/request identification details needed to investigate the issue.
+↳ Missing: ['system_name', 'purchase_request_id']
+---------------------------------------------------------------------------
+
+[14] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: Please specify the application or system where manager approvals are failing (e.g., SAP SuccessFactors, ServiceNow, Coupa) and provide the affected user ID or error details.
+↳ Missing: ['target_system', 'affected_user_id', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[15] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks specific system identification (e.g., SAP S/4HANA, Opcenter MES), order ID, plant location, and detailed reproduction steps or error details.
+↳ Missing: ['application_name', 'order_number', 'plant_location', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[16] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: Insufficient information provided. Please specify the target system or application name (e.g., Opcenter MES, SAP S/4HANA), exact error messages/codes, and reproduction steps.
+↳ Missing: ['system_name', 'error_details', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[17] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks the specific application or portal name, carrier details, and shipment/order ID necessary to investigate.
+↳ Missing: ['system_name', 'shipment_id', 'carrier_id']
+---------------------------------------------------------------------------
+
+[18] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks specific technical context, including the name of the quality application or dashboard system (e.g., Q-DAS, Power BI) and the plant or device location.
+↳ Missing: ['target_system', 'dashboard_name']
+---------------------------------------------------------------------------
+
+[19] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks the specific application or system name, error messages, and steps to reproduce the issue.
+↳ Missing: ['system_name', 'error_message', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[20] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: Ticket lacks the specific application name (e.g., SAP SuccessFactors, Kronos) and employee details required to process the access issue.
+↳ Missing: ['application_name', 'employee_id']
+---------------------------------------------------------------------------
+
+[21] AMBIGUOUS | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks essential technical context, such as the specific dashboard name, reporting application (e.g., Power BI, SAP), and exact financial metrics or reports being compared.
+↳ Missing: ['target_system', 'dashboard_name', 'report_details']
+---------------------------------------------------------------------------
+
+[22] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: Ticket lacks sufficient technical context, target application name, and problem details.
+↳ Missing: ['system_name', 'error_description', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[23] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks essential details including the specific system name, error messages, and steps to reproduce the issue.
+↳ Missing: ['target_system', 'error_details', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[24] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks essential technical context, such as the specific system or storage location (e.g., SharePoint, local drive, OneDrive) where the files were stored, and any error messages or recent actions.
+↳ Missing: ['target_system', 'storage_location', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[25] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: Ticket lacks application name, technical context, and reproduction steps necessary to route or resolve the issue.
+↳ Missing: ['target_system', 'issue_description', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[26] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks essential details including the specific application name, error code/message text, and reproduction steps.
+↳ Missing: ['target_system', 'error_message', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[27] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks specific details such as the targeted system/application name, nature of the issue, error messages, and reproduction steps.
+↳ Missing: ['system_name', 'error_details', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[28] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: Ticket lacks critical information such as the application name, specific error messages, and steps to reproduce the issue.
+↳ Missing: ['target_system', 'process_details', 'error_message', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[29] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: Ticket lacks target system name, plant location, specific error messages, and steps to reproduce the issue.
+↳ Missing: ['target_system', 'plant_location', 'error_message', 'reproduction_steps']
+---------------------------------------------------------------------------
+
+[30] INCOMPLETE | Actionable: False (Match: ✓) | Target: UNKNOWN | Queue: BOUNCE_QUEUE
+↳ Bounce Reason: The ticket lacks critical details including the target system name, issue description, error messages, and reproduction steps.
+↳ Missing: ['system_name', 'issue_description', 'error_code_or_message', 'reproduction_steps']
+---------------------------------------------------------------------------

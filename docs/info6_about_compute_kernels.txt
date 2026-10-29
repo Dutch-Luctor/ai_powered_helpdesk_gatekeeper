@@ -1,0 +1,36 @@
+ABOUT COMPUTE OR MATH KERNELS
+-----------------------------
+
+Based on Gemini's explanation how the CPU of the home stack helps the local model - where I was caught by the plurar "kernels".
+
+"Inside your CPU, there are special SIMD (Single Instruction, Multiple Data) execution units like AVX2. 
+	A matrix-multiplication "kernel" is written so that a single CPU instruction calculates 8 to 16 math operations at once.
+	When running an LLM on your Intel i7-12700 CPU, llama.cpp executes millions of these small C++ compute kernels every second 
+	to calculate token probabilities."
+
+I asked: "Does a Windows Computer Only Have One Kernel?
+
+Gemini:
+
+	In computer science, "kernel" has two distinct meanings depending on whether you are talking about operating systems or mathematical computing:
+
+
+		The Operating System Kernel (The Conductor):
+		Windows has one core OS kernel (ntoskrnl.exe). 
+		Its job is low-level hardware coordination: managing system memory, juggling CPU time slices across running programs, 
+		handling device drivers, and enforcing user permissions.
+
+		Compute / Math Kernels (The Engine Cylinders):
+		In machine learning, graphics, and high-performance computing, a compute kernel is a compact, 
+		highly specialized C/C++ or assembly routine designed to execute a single mathematical loop 
+		repeatedly across massive arrays of numbers (e.g., matrix multiplications: AB+C).
+		
+		Inside your CPU, there are special SIMD (Single Instruction, Multiple Data) execution units like AVX2. 
+		A matrix-multiplication "kernel" is written so that a single CPU instruction calculates 8 to 16 math operations at once.
+
+		When running an LLM on your Intel i7-12700 CPU, llama.cpp executes millions of these small C++ compute kernels every second 
+		to calculate token probabilities.
+
+
+
+ 

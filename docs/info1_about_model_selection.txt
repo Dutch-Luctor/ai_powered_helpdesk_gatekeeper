@@ -1,0 +1,96 @@
+ABOUT MODEL SELECTION
+---------------------
+
+The Enterprise Model Selection Framework
+----------------------------------------
+In an enterprise environment, you never choose a model based on hype, social media chatter, or raw leaderboard scores (like MMLU).
+
+	Enterprise model selection is a structured funnel. 
+	You start with compliance and hardware boundaries, 
+	narrow down to functional capabilities, 
+	and finalize by running empirical evaluation loops—exactly like the one you just executed.
+
+		[ Step 1: Legal & Data Boundary ] ──▶ SaaS Cloud vs. Private VPC vs. Local On-Prem 
+						│ 
+						▼
+		 
+		[Step 2: Compute Topology & SLA ] ──▶ RAM / VRAM Limits, Latency Floor, Target QPS 
+						│ 	
+						▼
+		 
+		[ Step 3: Model Family Profiling ] ──▶ Open LLM Leaderboards (MTEB, IFEval, Chatbot Arena) 
+						│ 
+						▼
+
+		[ Step 4: Empirical Matrix Eval ] ──▶ Run Golden Dataset (Accuracy vs. Inference Cost) 
+
+
+STEP 1: Data Governance & Egress Laws (The First Elimination Filter)
+	Before writing a single line of code, corporate legal 
+	and CISO (Chief Information Security Officer) policies determine 
+	where the model is allowed to run:
+	
+	Public SaaS API (OpenAI, Gemini, Anthropic): 
+	Permitted only if the company has enterprise Business Associate Agreements (BAA / DPA), 
+	explicit zero-data-retention guarantees, and no strict national data sovereignty restrictions 
+	(e.g., German works councils or French banking data laws).
+	
+	Self-Hosted / Air-Gapped (On-Prem / Local): 
+	Mandatory when handling raw tickets containing internal employee IDs, 
+	credentials, unreleased engineering drawings (PLM), or PII covered under strict GDPR boundaries.
+	If the answer is Self-Hosted, external cloud endpoints are immediately ruled out, 
+	directing the search entirely toward open-weight models.
+
+STEP 2: Compute Topology & Hardware Budget (The Physical Boundary)
+	Next, calculate the physical constraints of the deployment environment:
+	What hardware is already provisioned? Existing x86 VM servers (CPU only), edge workstations, 
+	or a dedicated AI cluster with Nvidia GPUs (or an Apple Silicon server node)?
+	
+	The Memory Sizing Rule:
+	RequiredMemory(RAM/VRAM) ~ Parameters(Billions) X BytesperWeight(Quantization)
+	
+	A 7B parameter model in 4-bit (Q4_K_M) requires 4.8GB just for weights, plus 1to2GB for KV cache. 
+	It runs comfortably on 16–32 GB RAM.
+	
+	A 70B model requires 40GB of high-speed memory and cannot run with acceptable real-time latency on standard PC dual-channel DDR4 memory.
+	
+	Throughput SLA: 
+	If the intake gate must respond in under 2 seconds during a ticket submission, 
+	a 1B–3B model on standard CPU compute fits the SLA envelope (~1.3s); 
+	a larger model that takes 8 seconds per ticket on CPU is disqualified without GPU acceleration.
+	
+STEP 3: Profiling Candidate Models (Where to Look)
+	When sourcing open-weight models, AI Systems Architects utilize specific industry benchmarks:
+	
+	Hugging Face Open LLM Leaderboard:
+	Filter by license (e.g., Apache 2.0 or permissive commercial use; avoiding non-commercial research-only weights).
+	Filter by size class (e.g., < 3B parameters or < 8B parameters).
+	
+	IFEval (Instruction Following Evaluation):
+	High MMLU scores measure trivia and broad academic knowledge. For an intake bouncer, that is irrelevant.
+	You look at IFEval, which measures whether the model strictly adheres to formatting rules, constraints, and operational negative conditions (e.g., "never do X if Y").
+	
+	Leading SLM Families (Current State):
+	Qwen 2.5 (Alibaba): 
+	Known for reasoning density at small parameter sizes (0.5B, 1.5B, 3B, 7B) and strong multilingual and structured extraction capabilities.
+	
+	Llama 3.2 (Meta): 
+	Competitive 1B and 3B architectures optimized for edge deployment and tool calling.
+	
+	Phi-3.5 / Phi-4 (Microsoft): 
+	High performance on structured logic and synthetic data reasoning, though occasionally more rigid to prompt.
+	
+	Gemma 2 (Google): 
+	2B and 9B variants with strong text processing performance.
+	
+STEP 4: The Empirical "Bake-Off" (How You Make the Final Selection)
+	An enterprise selection is never decided on a hunch. 
+	You take a representative sample of real historical tickets (like your 30-case dataset) and run an automated evaluation matrix:
+
+	E.g for CPU home stack
+
+	Candidate Model	|	Parameter Size	|	Quantization	|	Latency |	Gate Accuracy	|	Catalog Match	|	Decision
+	Qwen 2.5		|	1.5B			|	Q4_K_M			|	1.34s	|	86.7%			|	96.7%			|	Selected (Fast & Accurate)
+	Llama 3.2		|	1B				|	Q4_K_M			|	0.95s	|	73.3%			|	83.3%			|	Too small; misses nuances
+	Phi-3.5-mini	|	3.8B			|	Q4_K_M			|	3.40s	|	90.0%			|	96.7%			|	Accurate, but exceeds 2s SLA on CPU
+

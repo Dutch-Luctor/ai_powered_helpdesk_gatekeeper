@@ -1,0 +1,106 @@
+TEST RESULTS PHASE 2
+Phase 2: Local CPU (Qwen 2.5 1.5B Q4_K_M)
+-----------------------------------------
+
+| **Compute Infrastructure** | Local Intel Core i7-12700 (8 Threads, AVX2) |
+| **Data Egress / Privacy** | **100% On-Premise / Air-Gapped** |
+| **Actionable Gate Accuracy** | 26 / 30 (86.7%) |
+| **System Match Accuracy** | 29 / 30 (96.7%) |
+| **Average Latency** | **1.34s (Deterministic Local)** |
+| **Throughput** | ~21–33 tokens/second |
+| **Marginal Token Cost** | **$0.00 (Zero marginal compute OpEx)** |
+
+
+(.venv) C:\ai_lab\my-ticket-blueprint>python run_local_eval.py
+Loading GGUF engine on CPU: models\qwen2.5-1.5b-instruct-q4_k_m.gguf
+
+Engine ready in 0.73s.
+
+Loaded 30 test tickets from HELP REQUESTS XYZ users - Sheet1.csv.
+
+
+================================================================================
+
+#   | Archetype    | Act (Pred/Exp)  | System (Pred/Exp)                | Status
+
+================================================================================
+
+[01] Actionable   | True/True       | SAP S/4HANA/SAP S/4HANA          | OK (3.97s)
+
+[02] Actionable   | True/True       | SAP SuccessFac/SAP SuccessFac    | OK (1.52s)
+
+[03] Actionable   | True/True       | Microsoft 365/Microsoft 365      | OK (1.63s)
+
+[04] Actionable   | True/True       | Active Directo/Active Directo    | OK (1.51s)
+
+[05] Actionable   | True/True       | ServiceNow/ServiceNow            | OK (1.40s)
+
+[06] Actionable   | True/True       | Siemens Teamce/Siemens Teamce    | OK (1.40s)
+
+[07] Actionable   | True/True       | CATIA V6/CATIA V6                | OK (1.34s)
+
+[08] Actionable   | True/True       | Polarion ALM/Polarion ALM        | OK (1.40s)
+
+[09] Actionable   | True/True       | Opcenter MES/Opcenter MES        | OK (1.29s)
+
+[10] Actionable   | True/True       | Ignition SCADA/Ignition SCADA    | OK (1.31s)
+
+[11] Actionable   | True/True       | Power BI/Power BI                | OK (1.26s)
+
+[12] Actionable   | True/True       | EDI Gateway (O/EDI Gateway (O    | OK (1.32s)
+
+[13] Ambiguous    | False/False     | UNKNOWN/UNKNOWN                  | OK (1.15s)
+
+[14] Ambiguous    | False/False     | UNKNOWN/UNKNOWN                  | OK (1.12s)
+
+[15] Ambiguous    | False/False     | UNKNOWN/UNKNOWN                  | OK (1.15s)
+
+[16] Ambiguous    | True/False      | UNKNOWN/UNKNOWN                  | MISMATCH (1.16s)
+
+[17] Ambiguous    | False/False     | UNKNOWN/UNKNOWN                  | OK (1.12s)
+
+[18] Ambiguous    | False/False     | UNKNOWN/UNKNOWN                  | OK (1.11s)
+
+[19] Ambiguous    | False/False     | UNKNOWN/UNKNOWN                  | OK (1.11s)
+
+[20] Ambiguous    | True/False      | SAP SuccessFac/UNKNOWN           | MISMATCH (1.34s)
+
+[21] Ambiguous    | False/False     | UNKNOWN/UNKNOWN                  | OK (1.14s)
+
+[22] Incomplete   | False/False     | UNKNOWN/UNKNOWN                  | OK (1.13s)
+
+[23] Incomplete   | False/False     | UNKNOWN/UNKNOWN                  | OK (1.15s)
+
+[24] Incomplete   | False/False     | UNKNOWN/UNKNOWN                  | OK (1.09s)
+
+[25] Incomplete   | True/False      | UNKNOWN/UNKNOWN                  | MISMATCH (1.13s)
+
+[26] Incomplete   | False/False     | UNKNOWN/UNKNOWN                  | OK (1.11s)
+
+[27] Incomplete   | True/False      | UNKNOWN/UNKNOWN                  | MISMATCH (1.17s)
+
+[28] Incomplete   | False/False     | UNKNOWN/UNKNOWN                  | OK (1.17s)
+
+[29] Incomplete   | False/False     | UNKNOWN/UNKNOWN                  | OK (1.15s)
+
+[30] Incomplete   | False/False     | UNKNOWN/UNKNOWN                  | OK (1.22s)
+
+================================================================================
+
+PHASE 2 LOCAL EVALUATION SUMMARY
+
+--------------------------------------------------------------------------------
+
+Total Tickets:            30
+
+Actionable Gate Accuracy: 26/30 (86.7%)
+
+System Match Accuracy:    29/30 (96.7%)
+
+Total Infer Time:         40.08 seconds
+
+Avg Latency per Ticket:   1.34 seconds
+
+Avg Throughput:           20.93 tokens/second
+
+================================================================================
